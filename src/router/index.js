@@ -8,6 +8,7 @@ import DropdownMenu from '@/components/DropdownMenu'
 import Orbit from '@/components/Orbit'
 import Reveal from '@/components/Reveal'
 import Slider from '@/components/Slider'
+import DrilldownMenu from '@/components/DrilldownMenu'
 import Dropdown from '@/components/Dropdown'
 import Accordion from '@/components/Accordion'
 
@@ -18,6 +19,7 @@ export default new Router({
   routes: [
     { name: 'Hello', path: '/', component: Hello },
     { name: 'accordion', path: '/accordion', component: Accordion },
+    { name: 'drilldown-menu', path: '/drilldown-menu', component: DrilldownMenu },
     { name: 'dropdown', path: '/dropdown', component: Dropdown },
     { name: 'dropdown-menu', path: '/dropdown-menu', component: DropdownMenu },
     { name: 'magellan', path: '/magellan', component: Magellan },

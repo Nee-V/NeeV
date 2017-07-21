@@ -26,6 +26,7 @@
             <li class="is-dropdown-submenu-parent"><a href="#">Components</a>
               <ul>
                 <li><router-link to="/accordion" exact>Accordion</router-link></li>
+                <li><router-link to="/drilldown-menu" exact>Drilldown Menu</router-link></li>
                 <li><router-link to="/dropdown" exact>Dropdown</router-link></li>
                 <li><router-link to="/dropdown-menu" exact>Dropdown Menu</router-link></li>
                 <li><router-link to="/magellan" exact>Magellan</router-link></li>
