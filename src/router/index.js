@@ -4,6 +4,7 @@ import Hello from '@/components/Hello'
 import Tabs from '@/components/Tabs'
 import Tooltip from '@/components/Tooltip'
 import Magellan from '@/components/Magellan'
+import DropdownMenu from '@/components/DropdownMenu'
 import Orbit from '@/components/Orbit'
 import Reveal from '@/components/Reveal'
 import Slider from '@/components/Slider'
@@ -18,6 +19,7 @@ export default new Router({
     { name: 'Hello', path: '/', component: Hello },
     { name: 'accordion', path: '/accordion', component: Accordion },
     { name: 'dropdown', path: '/dropdown', component: Dropdown },
+    { name: 'dropdown-menu', path: '/dropdown-menu', component: DropdownMenu },
     { name: 'magellan', path: '/magellan', component: Magellan },
     { name: 'orbit', path: '/orbit', component: Orbit },
     { name: 'reveal', path: '/reveal', component: Reveal },

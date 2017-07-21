@@ -27,6 +27,7 @@
               <ul>
                 <li><router-link to="/accordion" exact>Accordion</router-link></li>
                 <li><router-link to="/dropdown" exact>Dropdown</router-link></li>
+                <li><router-link to="/dropdown-menu" exact>Dropdown Menu</router-link></li>
                 <li><router-link to="/magellan" exact>Magellan</router-link></li>
                 <li><router-link to="/orbit" exact>Orbit</router-link></li>
                 <li><router-link to="/reveal" exact>Reveal</router-link></li>
