@@ -30,6 +30,7 @@
                 <li><router-link to="/orbit" exact>Orbit</router-link></li>
                 <li><router-link to="/reveal" exact>Reveal</router-link></li>
                 <li><router-link to="/tabs" exact>Tabs</router-link></li>
+                <li><router-link to="/tooltip" exact>Tooltip</router-link></li>
               </ul>
             </li>
           </ul>
