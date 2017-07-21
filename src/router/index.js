@@ -5,6 +5,7 @@ import Tabs from '@/components/Tabs'
 import Tooltip from '@/components/Tooltip'
 import Orbit from '@/components/Orbit'
 import Reveal from '@/components/Reveal'
+import Slider from '@/components/Slider'
 import Dropdown from '@/components/Dropdown'
 import Accordion from '@/components/Accordion'
 
@@ -18,6 +19,7 @@ export default new Router({
     { name: 'dropdown', path: '/dropdown', component: Dropdown },
     { name: 'orbit', path: '/orbit', component: Orbit },
     { name: 'reveal', path: '/reveal', component: Reveal },
+    { name: 'slider', path: '/slider', component: Slider },
     { name: 'tooltip', path: '/tooltip', component: Tooltip },
     { name: 'tabs', path: '/tabs', component: Tabs }
   ]
