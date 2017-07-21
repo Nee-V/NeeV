@@ -23,7 +23,7 @@
             <li class="logo">
               <router-link to="/">Zurb Vue</router-link>
             </li>
-            <li><a href="#">Components</a>
+            <li class="is-dropdown-submenu-parent"><a href="#">Components</a>
               <ul>
                 <li><router-link to="/accordion" exact>Accordion</router-link></li>
                 <li><router-link to="/dropdown" exact>Dropdown</router-link></li>
