@@ -18,8 +18,8 @@
         <a href="#" class="blogpost-footer-author">
           <img class="avatar" src="http://fillmurray.com/200/200" alt="" />
           <div>
-            <p class="author">Bill Murray</p>
-            <p class="bio">Bill Murray is an American actor, comedian, and writer.</p>
+            <p class="author">{{ this.author }}</p>
+            <p class="bio">{{ this.bio }}</p>
           </div>
         </a>
       </div>
@@ -46,9 +46,10 @@ export default {
     // this.tooltip = $('.has-tip').foundation()
   },
   data () {
-    // return {
-    //   msg: 'Product Card'
-    // }
+    return {
+      author: 'Product Card',
+      bio: 'Bill Murray is an American actor, comedian, and writer.'
+    }
   },
   destroyed () {
     // Due to Selector Method destroy is disabled
