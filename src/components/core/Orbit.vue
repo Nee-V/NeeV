@@ -28,7 +28,7 @@ export default {
   mounted () {
     this.orbit = new Foundation.Orbit($('#orbit'), {
       // These options can be declarative using the data attributes
-      timerDelay: 500
+      timerDelay: 3000
     })
   },
   data () {
