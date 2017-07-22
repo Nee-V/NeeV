@@ -13,16 +13,12 @@
         v-bind:data-deep-link-smudge="dLSmudge"
         v-bind:data-deep-link-smudge-delay="dLSmudgeDelay"
         v-bind:data-update-history="history">
-        <li class="accordion-item is-active" data-accordion-item>
-          <a href="#" class="accordion-title">Accordion 1</a>
+        <li
+          v-bind:class="[index === 0 ? 'is-active' : '', 'accordion-item']"
+          data-accordion-item v-for="(panel, index) in panels">
+          <a v-bind:href="[dL === true ? '#accordion-' + (index + 1) : '#']" class="accordion-title">{{ panel.title }}</a>
           <div class="accordion-content" data-tab-content>
-            If you init Foundation in the component, this will work fine.
-          </div>
-        </li>
-        <li class="accordion-item" data-accordion-item>
-          <a href="#" class="accordion-title">Accordion 2</a>
-          <div class="accordion-content" data-tab-content>
-            I need to be clicked, in order to show up.
+            {{ panel.content }}
           </div>
         </li>
       </ul>
@@ -63,7 +59,7 @@ export default {
     },
     deepLink: {
       type: Boolean,
-      default: () => false
+      default: () => true
     },
     deepLinkSmudge: {
       type: Boolean,
@@ -76,6 +72,19 @@ export default {
     updateHistory: {
       type: Boolean,
       default: () => false
+    },
+    panels: {
+      type: Array,
+      default: () => [
+        {
+          title: 'Accordion 1',
+          content: 'If you init Foundation in the component, this will work fine.'
+        },
+        {
+          title: 'Accordion 2',
+          content: 'I need to be clicked, in order to show up.'
+        }
+      ]
     }
   },
   destroyed () {
