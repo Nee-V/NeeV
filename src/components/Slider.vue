@@ -2,7 +2,16 @@
   <div class="row">
     <div class="medium-10 medium-offset-1 columns">
       <h1>{{ msg }}</h1>
-      <div id="slider" class="slider" data-slider v-bind:data-initial-start="this.dataValue" v-bind:data-end="this.dataEnd">
+      <div
+        id="slider"
+        v-bind:data-vertical="isVertical === true ? 'true' : 'false'"
+        v-bind:class="[isVertical === true ? 'vertical' : '', isDisabled === true ? 'disabled' : '']"
+        class="slider "
+        data-slider
+        v-bind:data-initial-start="this.dataValue"
+        v-bind:data-end="this.dataEnd"
+        v-bind:data-step="stepValue"
+        >
         <span class="slider-handle" data-slider-handle role="slider" tabindex="1"></span>
         <span class="slider-fill" data-slider-fill></span>
         <input type="hidden" class="slider-input">
@@ -18,7 +27,6 @@ export default {
   mounted () {
     this.slider = new Foundation.Slider($('#slider'), {
       // These options can be declarative using the data attributes
-      step: 10
     })
     this.slider.$element.on('moved.zf.slider', () => {
       this.dataValue = this.slider.inputs.val()
@@ -27,8 +35,29 @@ export default {
   data () {
     return {
       msg: 'Slider',
-      dataValue: 50,
-      dataEnd: 200
+      dataValue: this.currentValue ? this.currentValue : 0,
+      dataEnd: 200,
+      isVertical: this.verticalLayout ? this.verticalLayout : false,
+      isDisabled: this.disabled ? this.disabled : false,
+      stepValue: this.stepSize ? this.stepSize : 5
+    }
+  },
+  props: {
+    currentValue: {
+      type: Number,
+      default: () => 60
+    },
+    verticalLayout: {
+      type: Boolean,
+      default: () => false
+    },
+    disabled: {
+      type: Boolean,
+      default: () => false
+    },
+    stepSize: {
+      type: Number,
+      default: () => 20
     }
   },
   destroyed () {
