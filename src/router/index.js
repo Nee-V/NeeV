@@ -1,9 +1,12 @@
+// Import Vue and Vue Router
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// Custom Components
 import Hello from '@/components/core/Hello'
 import Home from '@/components/core/Home'
 
+// Foundation Core Components
 import Accordion from '@/components/core/Accordion'
 import AccordionMenu from '@/components/core/AccordionMenu'
 import DrilldownMenu from '@/components/core/DrilldownMenu'
@@ -16,6 +19,9 @@ import Slider from '@/components/core/Slider'
 import Tabs from '@/components/core/Tabs'
 import Tooltip from '@/components/core/Tooltip'
 
+// Foundation Building Blocks
+
+// Initialize Vue Router
 Vue.use(Router)
 
 export default new Router({
