@@ -48,19 +48,19 @@ export default {
       type: Array,
       default: () => [
         {
-          url: require('../assets/img/orbit/01.jpg'),
+          url: require('@/assets/img/orbit/01.jpg'),
           title: 'Space, the final frontier.',
           alt: 'Space'
         }, {
-          url: require('../assets/img/orbit/02.jpg'),
+          url: require('@/assets/img/orbit/02.jpg'),
           title: 'Lets Rocket!',
           alt: 'Space'
         }, {
-          url: require('../assets/img/orbit/03.jpg'),
+          url: require('@/assets/img/orbit/03.jpg'),
           title: 'Encapsulating',
           alt: 'Space'
         }, {
-          url: require('../assets/img/orbit/04.jpg'),
+          url: require('@/assets/img/orbit/04.jpg'),
           title: 'Outta This World',
           alt: 'Space'
         }

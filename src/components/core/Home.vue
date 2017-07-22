@@ -1,7 +1,7 @@
 <template>
   <div class="row align-middle">
     <div class="small-10 medium-5 small-offset-1 columns image">
-      <img src="../assets/img/vue-yeti.jpg">
+      <img v-bind:src="require('@/assets/img/vue-yeti.jpg')">
     </div>
     <div class="small-12 medium-5 columns">
       <h1>{{ msg }}</h1>

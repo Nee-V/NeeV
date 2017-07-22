@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <img src="../assets/logo.png">
+    <img v-bind:src="require('@/assets/logo.png')">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <div class="button-group">
