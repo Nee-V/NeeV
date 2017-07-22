@@ -22,6 +22,7 @@ import Tooltip from '@/components/core/Tooltip'
 // Foundation Building Blocks
 import BlogPostFooter from '@/components/blocks/BlogPostFooter'
 import ProductCard from '@/components/blocks/ProductCard'
+import StandardMenu from '@/components/helpers/StandardMenu'
 
 // Initialize Vue Router
 Vue.use(Router)
@@ -29,6 +30,7 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
+    { name: 'standard-menu', path: '/standard-menu', component: StandardMenu },
     { name: 'Hello', path: '/', component: Hello },
     { name: 'Home', path: '/home', component: Home },
     { name: 'accordion', path: '/accordion', component: Accordion },

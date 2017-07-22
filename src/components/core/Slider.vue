@@ -23,7 +23,9 @@
 
 <script>
 export default {
+  // Component name
   name: 'slider',
+  // Component mounted hook
   mounted () {
     this.slider = new Foundation.Slider($('#' + this.sliderID), {
       // These options can be declarative using the data attributes
@@ -32,6 +34,7 @@ export default {
       this.dataValue = this.slider.inputs.val()
     })
   },
+  // Component data
   data () {
     return {
       msg: 'Slider',
@@ -43,6 +46,7 @@ export default {
       sliderID: this.sliderId ? this.sliderId : 'slider'
     }
   },
+  // External component properties
   props: {
     currentValue: {
       type: Number,
@@ -65,6 +69,7 @@ export default {
       default: () => 'slider'
     }
   },
+  // Component destroyed hook
   destroyed () {
     this.slider.destroy()
   }

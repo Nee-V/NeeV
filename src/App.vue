@@ -46,6 +46,11 @@
                 <li><router-link to="/product-card" exact>Product Card</router-link></li>
               </ul>
             </li>
+            <li class="is-dropdown-submenu-parent"><a href="#">Helpers</a>
+              <ul>
+                <li><router-link to="/standard-menu" exact>Standard Menu</router-link></li>
+              </ul>
+            </li>
           </ul>
           <a class="button small menu-button hide-for-medium" data-toggle="offCanvas">Menu</a>
       </div>
@@ -69,6 +74,7 @@ export default {
 
 <style lang="scss">
   @import './styles/global';
+
   .off-canvas-content .content-wrapper {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
