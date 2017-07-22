@@ -20,6 +20,7 @@ import Tabs from '@/components/core/Tabs'
 import Tooltip from '@/components/core/Tooltip'
 
 // Foundation Building Blocks
+import BlogPostFooter from '@/components/blocks/BlogPostFooter'
 import ProductCard from '@/components/blocks/ProductCard'
 
 // Initialize Vue Router
@@ -41,6 +42,7 @@ export default new Router({
     { name: 'slider', path: '/slider', component: Slider },
     { name: 'tabs', path: '/tabs', component: Tabs },
     { name: 'tooltip', path: '/tooltip', component: Tooltip },
+    { name: 'blog-post-footer', path: '/blog-post-footer', component: BlogPostFooter },
     { name: 'product-card', path: '/product-card', component: ProductCard }
   ]
 })

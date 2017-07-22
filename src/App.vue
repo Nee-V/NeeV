@@ -42,6 +42,7 @@
             </li>
             <li class="is-dropdown-submenu-parent"><a href="#">Building Blocks</a>
               <ul>
+                <li><router-link to="/blog-post-footer" exact>Blog Post Footer</router-link></li>
                 <li><router-link to="/product-card" exact>Product Card</router-link></li>
               </ul>
             </li>
