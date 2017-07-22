@@ -11,7 +11,7 @@ window.$ = jQuery
 require('motion-ui')
 require('what-input')
 require('foundation-sites')
-
+require('font-awesome/css/font-awesome.css')
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

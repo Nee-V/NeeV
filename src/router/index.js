@@ -20,6 +20,7 @@ import Tabs from '@/components/core/Tabs'
 import Tooltip from '@/components/core/Tooltip'
 
 // Foundation Building Blocks
+import ProductCard from '@/components/blocks/ProductCard'
 
 // Initialize Vue Router
 Vue.use(Router)
@@ -39,6 +40,7 @@ export default new Router({
     { name: 'reveal', path: '/reveal', component: Reveal },
     { name: 'slider', path: '/slider', component: Slider },
     { name: 'tabs', path: '/tabs', component: Tabs },
-    { name: 'tooltip', path: '/tooltip', component: Tooltip }
+    { name: 'tooltip', path: '/tooltip', component: Tooltip },
+    { name: 'product-card', path: '/product-card', component: ProductCard }
   ]
 })

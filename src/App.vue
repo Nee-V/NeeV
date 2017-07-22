@@ -40,6 +40,11 @@
                 <li><router-link to="/tooltip" exact>Tooltip</router-link></li>
               </ul>
             </li>
+            <li class="is-dropdown-submenu-parent"><a href="#">Building Blocks</a>
+              <ul>
+                <li><router-link to="/product-card" exact>Product Card</router-link></li>
+              </ul>
+            </li>
           </ul>
           <a class="button small menu-button hide-for-medium" data-toggle="offCanvas">Menu</a>
       </div>
