@@ -1,23 +1,20 @@
 <template>
-  <div class="row">
-    <div class="medium-10 medium-offset-1 columns">
-      <h1>{{ msg }}</h1>
-      <div
-        v-bind:id="this.sliderID"
-        v-bind:data-vertical="isVertical === true ? 'true' : 'false'"
-        v-bind:class="[isVertical === true ? 'vertical' : '', isDisabled === true ? 'disabled' : '']"
-        class="slider "
-        data-slider
-        v-bind:data-initial-start="this.dataValue"
-        v-bind:data-end="this.dataEnd"
-        v-bind:data-step="this.stepValue"
-        >
-        <span class="slider-handle" data-slider-handle role="slider" tabindex="1"></span>
-        <span class="slider-fill" data-slider-fill></span>
-        <input type="hidden" class="slider-input">
-      </div>
-      <p>Value: {{ dataValue }}</p>
+  <div class="wrapper">
+    <div
+      v-bind:id="this.sliderID"
+      v-bind:data-vertical="isVertical === true ? 'true' : 'false'"
+      v-bind:class="[isVertical === true ? 'vertical' : '', isDisabled === true ? 'disabled' : '']"
+      class="slider "
+      data-slider
+      v-bind:data-initial-start="this.dataValue"
+      v-bind:data-end="this.dataEnd"
+      v-bind:data-step="this.stepValue"
+      >
+      <span class="slider-handle" data-slider-handle role="slider" tabindex="1"></span>
+      <span class="slider-fill" data-slider-fill></span>
+      <input type="hidden" class="slider-input">
     </div>
+    <p>Value: {{ dataValue }}</p>
   </div>
 </template>
 

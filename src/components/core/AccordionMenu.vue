@@ -1,44 +1,39 @@
 <template>
-  <div class="row">
-    <div class="medium-10 medium-offset-1 columns">
-      <h1>{{ msg }}</h1>
-      <ul
-        id="accordion-menu"
-        class="vertical menu"
-        data-accordion-menu
-        v-bind:data-multi-open="multi ? multi : 'false'"
-        v-bind:data-submenu-toggle="toggle"
-        v-bind:data-submenu-toggle-text="toggleText"
-        v-bind:data-slide-speed="speed">
+  <ul
+    id="accordion-menu"
+    class="vertical menu"
+    data-accordion-menu
+    v-bind:data-multi-open="multi ? multi : 'false'"
+    v-bind:data-submenu-toggle="toggle"
+    v-bind:data-submenu-toggle-text="toggleText"
+    v-bind:data-slide-speed="speed">
 
-        <li v-for="(link, index) in links">
-          <router-link
-            v-if="link.mode === 'router' || (menuMode === 'router' && link.mode !== 'standard')"
-            v-bind:to="link.target" exact>
-            {{ link.title }}
-          </router-link>
-          <a
-            v-else
-            v-bind:href="link.target">
-            {{ link.title }}
-          </a>
-          <ul class="menu vertical" v-if="link.submenu">
-            <li v-for="sublink in link.submenu">
-              <a v-bind:href="sublink.target">{{ sublink.title }}</a>
-            </li>
-          </ul>
+    <li v-for="(link, index) in links">
+      <router-link
+        v-if="link.mode === 'router' || (menuMode === 'router' && link.mode !== 'standard')"
+        v-bind:to="link.target" exact>
+        {{ link.title }}
+      </router-link>
+      <a
+        v-else
+        v-bind:href="link.target">
+        {{ link.title }}
+      </a>
+      <ul class="menu vertical" v-if="link.submenu">
+        <li v-for="sublink in link.submenu">
+          <a v-bind:href="sublink.target">{{ sublink.title }}</a>
         </li>
-        <li>
-          <a>Item 1</a>
-          <ul class="menu vertical nested">
-            <li><a>Item 1A</a></li>
-            <li><a>Item 1B</a></li>
-          </ul>
-        </li>
-        <li><a>Item 2</a></li>
       </ul>
-    </div>
-  </div>
+    </li>
+    <li>
+      <a>Item 1</a>
+      <ul class="menu vertical nested">
+        <li><a>Item 1A</a></li>
+        <li><a>Item 1B</a></li>
+      </ul>
+    </li>
+    <li><a>Item 2</a></li>
+  </ul>
 </template>
 
 <script>

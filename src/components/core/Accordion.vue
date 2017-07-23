@@ -1,29 +1,24 @@
 <template>
-  <div class="row">
-    <div class="medium-10 medium-offset-1 columns">
-      <h1>{{ msg }}</h1>
-      <ul
-        id="accordion"
-        class="accordion"
-        data-accordion
-        v-bind:data-slide-speed="speed"
-        v-bind:data-multi-expand="multi"
-        v-bind:data-allow-all-closed="allClosed"
-        v-bind:data-deep-link="dL"
-        v-bind:data-deep-link-smudge="dLSmudge"
-        v-bind:data-deep-link-smudge-delay="dLSmudgeDelay"
-        v-bind:data-update-history="history">
-        <li
-          v-bind:class="[index === 0 ? 'is-active' : '', 'accordion-item']"
-          data-accordion-item v-for="(panel, index) in panels">
-          <a v-bind:href="[dL === true ? '#accordion-' + (index + 1) : '#']" class="accordion-title">{{ panel.title }}</a>
-          <div class="accordion-content" data-tab-content>
-            {{ panel.content }}
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <ul
+    id="accordion"
+    class="accordion"
+    data-accordion
+    v-bind:data-slide-speed="speed"
+    v-bind:data-multi-expand="multi"
+    v-bind:data-allow-all-closed="allClosed"
+    v-bind:data-deep-link="dL"
+    v-bind:data-deep-link-smudge="dLSmudge"
+    v-bind:data-deep-link-smudge-delay="dLSmudgeDelay"
+    v-bind:data-update-history="history">
+    <li
+      v-bind:class="[index === 0 ? 'is-active' : '', 'accordion-item']"
+      data-accordion-item v-for="(panel, index) in panels">
+      <a v-bind:href="[dL === true ? '#accordion-' + (index + 1) : '#']" class="accordion-title">{{ panel.title }}</a>
+      <div class="accordion-content" data-tab-content>
+        {{ panel.content }}
+      </div>
+    </li>
+  </ul>
 </template>
 
 <script>

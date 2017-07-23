@@ -18,7 +18,7 @@ import Orbit from '@/components/core/Orbit'
 import Pagination from '@/components/core/Pagination'
 import Reveal from '@/components/core/Reveal'
 import Slider from '@/components/core/Slider'
-import Switch from '@/components/core/Switch'
+import ToggleSwitch from '@/components/core/ToggleSwitch'
 import Tabs from '@/components/core/Tabs'
 import Tooltip from '@/components/core/Tooltip'
 
@@ -27,6 +27,9 @@ import BlogPostFooter from '@/components/blocks/BlogPostFooter'
 import ProductCard from '@/components/blocks/ProductCard'
 import StandardMenu from '@/components/helpers/StandardMenu'
 
+// Pages
+import Components from '@/components/pages/Components'
+
 // Initialize Vue Router
 Vue.use(Router)
 
@@ -34,22 +37,23 @@ export default new Router({
   mode: 'history',
   routes: [
     { name: 'standard-menu', path: '/standard-menu', component: StandardMenu },
+    { name: 'components-page', path: '/components', component: Components },
     { name: 'Hello', path: '/', component: Hello },
-    { name: 'Home', path: '/home', component: Home },
-    { name: 'accordion', path: '/accordion', component: Accordion },
-    { name: 'accordion-menu', path: '/accordion-menu', component: AccordionMenu },
-    { name: 'breadcrumbs', path: '/breadcrumbs', component: Breadcrumbs },
-    { name: 'drilldown-menu', path: '/drilldown-menu', component: DrilldownMenu },
-    { name: 'dropdown', path: '/dropdown', component: Dropdown },
-    { name: 'dropdown-menu', path: '/dropdown-menu', component: DropdownMenu },
-    { name: 'magellan', path: '/magellan', component: Magellan },
-    { name: 'orbit', path: '/orbit', component: Orbit },
-    { name: 'pagination', path: '/pagination', component: Pagination },
-    { name: 'reveal', path: '/reveal', component: Reveal },
-    { name: 'slider', path: '/slider', component: Slider },
-    { name: 'switch', path: '/switch', component: Switch },
-    { name: 'tabs', path: '/tabs', component: Tabs },
-    { name: 'tooltip', path: '/tooltip', component: Tooltip },
+    { name: 'Home', path: '/components/home', component: Home },
+    { name: 'accordion', path: '/components/accordion', component: Accordion },
+    { name: 'accordion-menu', path: '/components/accordion-menu', component: AccordionMenu },
+    { name: 'breadcrumbs', path: '/components/breadcrumbs', component: Breadcrumbs },
+    { name: 'drilldown-menu', path: '/components/drilldown-menu', component: DrilldownMenu },
+    { name: 'dropdown', path: '/components/dropdown', component: Dropdown },
+    { name: 'dropdown-menu', path: '/components/dropdown-menu', component: DropdownMenu },
+    { name: 'magellan', path: '/components/magellan', component: Magellan },
+    { name: 'orbit', path: '/components/orbit', component: Orbit },
+    { name: 'pagination', path: '/components/pagination', component: Pagination },
+    { name: 'reveal', path: '/components/reveal', component: Reveal },
+    { name: 'slider', path: '/components/slider', component: Slider },
+    { name: 'switch', path: '/components/switch', component: ToggleSwitch },
+    { name: 'tabs', path: '/components/tabs', component: Tabs },
+    { name: 'tooltip', path: '/components/tooltip', component: Tooltip },
     { name: 'blog-post-footer', path: '/blog-post-footer', component: BlogPostFooter },
     { name: 'product-card', path: '/product-card', component: ProductCard }
   ]

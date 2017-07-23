@@ -18,7 +18,12 @@
       </ul>
     </div>
     <div class="off-canvas-content" data-off-canvas-content>
-      <top-bar :left-menu="mainMenu" :title="title" :menu-mode="mode"><a class="button small menu-button hide-for-medium" data-toggle="offCanvas">Menu</a></top-bar>
+      <top-bar
+        :left-menu="mainMenu"
+        :title="title"
+        :menu-mode="mode">
+        <a class="button small menu-button hide-for-medium" data-toggle="offCanvas">Menu</a>
+      </top-bar>
 
       <div class="content-wrapper">
         <router-view></router-view>
@@ -64,82 +69,82 @@ export default {
         },
         {
           title: 'Components',
-          target: '#',
-          mode: 'link',
+          target: '/components',
+          mode: 'router',
           submenu: [
             {
               title: 'Accordion',
-              target: '/accordion',
+              target: '/components/accordion',
               mode: 'router'
             },
             {
               title: 'Accordion Menu',
-              target: '/accordion-menu',
+              target: '/components/accordion-menu',
               mode: 'router'
             },
             {
               title: 'Breadcrumbs',
-              target: '/breadcrumbs',
+              target: '/components/breadcrumbs',
               mode: 'router'
             },
             {
               title: 'Drilldown Menu',
-              target: '/drilldown-menu',
+              target: '/components/drilldown-menu',
               mode: 'router'
             },
             {
               title: 'Dropdown',
-              target: '/dropdown',
+              target: '/components/dropdown',
               mode: 'router'
             },
             {
               title: 'Dropdown Menu',
-              target: '/dropdown-menu',
+              target: '/components/dropdown-menu',
               mode: 'router'
             },
             {
               title: 'Home Component',
-              target: '/home',
+              target: '/components/home',
               mode: 'router'
             },
             {
               title: 'Magellan',
-              target: '/magellan',
+              target: '/components/magellan',
               mode: 'router'
             },
             {
               title: 'Orbit',
-              target: '/orbit',
+              target: '/components/orbit',
               mode: 'router'
             },
             {
               title: 'Pagination',
-              target: '/pagination',
+              target: '/components/pagination',
               mode: 'router'
             },
             {
               title: 'Reveal',
-              target: '/reveal',
+              target: '/components/reveal',
               mode: 'router'
             },
             {
               title: 'Slider',
-              target: '/slider',
+              target: '/components/slider',
               mode: 'router'
             },
             {
               title: 'Switch',
-              target: '/switch',
+              target: '/components/switch',
               mode: 'router'
             },
             {
               title: 'Tabs',
-              target: '/tabs',
+              target: '/components/tabs',
               mode: 'router'
             },
             {
               title: 'Tooltip',
-              target: '/tooltip',
+              target: '/components/tooltip',
               mode: 'router'
             }
           ]
@@ -171,7 +176,7 @@ export default {
 <style lang="scss">
   @import './styles/global';
   body {
-    background-color: $light-gray;
+    background-color: $white;
   }
   .off-canvas-content .content-wrapper {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
