@@ -1,20 +1,24 @@
 <template>
-  <ul
-    v-bind:class="[
-      'menu',
-      verticalLayout ? 'vertical' : '',
-      linkAlignment === 'left' ? 'align-left' : '',
-      linkAlignment === 'right' ? 'align-right' : '',
-      linkAlignment === 'center' ? 'align-center' : '',
-      expandMenu ? 'expanded' : '']">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Home</a></li>
-  </ul>
+  <div class="row">
+    <div class="medium-10 medium-offset-1 columns">
+      <ul
+        v-bind:class="[
+          'menu',
+          verticalLayout ? 'vertical' : '',
+          linkAlignment === 'left' ? 'align-left' : '',
+          linkAlignment === 'right' ? 'align-right' : '',
+          linkAlignment === 'center' ? 'align-center' : '',
+          expandMenu ? 'expanded' : '']">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -30,6 +34,10 @@ export default {
     vertical: {
       type: Boolean,
       default: () => false
+    },
+    type: {
+      type: String,
+      default: () => ''
     },
     mode: {
       type: String,

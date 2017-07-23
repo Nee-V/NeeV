@@ -18,42 +18,8 @@
       </ul>
     </div>
     <div class="off-canvas-content" data-off-canvas-content>
-      <div class="top-bar">
+      <top-bar :left-menu="mainMenu" :title="title" :menu-mode="mode"><a class="button small menu-button hide-for-medium" data-toggle="offCanvas">Menu</a></top-bar>
 
-          <ul class="menu dropdown show-for-medium" id="mainDropDown" data-dropdown-menu>
-            <li class="logo">
-              <router-link to="/">Zurb Vue</router-link>
-            </li>
-            <li class="is-dropdown-submenu-parent"><a href="#">Components</a>
-              <ul>
-                <li><router-link to="/accordion" exact>Accordion</router-link></li>
-                <li><router-link to="/accordion-menu" exact>Accordion Menu</router-link></li>
-                <li><router-link to="/drilldown-menu" exact>Drilldown Menu</router-link></li>
-                <li><router-link to="/dropdown" exact>Dropdown</router-link></li>
-                <li><router-link to="/dropdown-menu" exact>Dropdown Menu</router-link></li>
-                <li><router-link to="/home" exact>Home Component</router-link></li>
-                <li><router-link to="/magellan" exact>Magellan</router-link></li>
-                <li><router-link to="/orbit" exact>Orbit</router-link></li>
-                <li><router-link to="/reveal" exact>Reveal</router-link></li>
-                <li><router-link to="/slider" exact>Slider</router-link></li>
-                <li><router-link to="/tabs" exact>Tabs</router-link></li>
-                <li><router-link to="/tooltip" exact>Tooltip</router-link></li>
-              </ul>
-            </li>
-            <li class="is-dropdown-submenu-parent"><a href="#">Building Blocks</a>
-              <ul>
-                <li><router-link to="/blog-post-footer" exact>Blog Post Footer</router-link></li>
-                <li><router-link to="/product-card" exact>Product Card</router-link></li>
-              </ul>
-            </li>
-            <li class="is-dropdown-submenu-parent"><a href="#">Helpers</a>
-              <ul>
-                <li><router-link to="/standard-menu" exact>Standard Menu</router-link></li>
-              </ul>
-            </li>
-          </ul>
-          <a class="button small menu-button hide-for-medium" data-toggle="offCanvas">Menu</a>
-      </div>
       <div class="content-wrapper">
         <router-view></router-view>
       </div>
@@ -63,8 +29,138 @@
 </template>
 
 <script>
+import TopBar from './components/core/TopBar.vue'
+
 export default {
   name: 'app',
+  data () {
+    return {
+      title: 'Zurb Vue',
+      target: '/',
+      mode: 'router',
+      mainMenu: [
+        {
+          title: 'Zurb Vue',
+          target: '/',
+          mode: 'router',
+          class: 'logo'
+        },
+        {
+          title: 'Building Blocks',
+          target: '#',
+          mode: 'link',
+          submenu: [
+            {
+              title: 'Post Footer',
+              target: '/blog-post-footer',
+              mode: 'router'
+            },
+            {
+              title: 'Product Card',
+              target: '/product-card',
+              mode: 'router'
+            }
+          ]
+        },
+        {
+          title: 'Components',
+          target: '#',
+          mode: 'link',
+          submenu: [
+            {
+              title: 'Accordion',
+              target: '/accordion',
+              mode: 'router'
+            },
+            {
+              title: 'Accordion Menu',
+              target: '/accordion-menu',
+              mode: 'router'
+            },
+            {
+              title: 'Breadcrumbs',
+              target: '/breadcrumbs',
+              mode: 'router'
+            },
+            {
+              title: 'Drilldown Menu',
+              target: '/drilldown-menu',
+              mode: 'router'
+            },
+            {
+              title: 'Dropdown',
+              target: '/dropdown',
+              mode: 'router'
+            },
+            {
+              title: 'Dropdown Menu',
+              target: '/dropdown-menu',
+              mode: 'router'
+            },
+            {
+              title: 'Home Component',
+              target: '/home',
+              mode: 'router'
+            },
+            {
+              title: 'Magellan',
+              target: '/magellan',
+              mode: 'router'
+            },
+            {
+              title: 'Orbit',
+              target: '/orbit',
+              mode: 'router'
+            },
+            {
+              title: 'Pagination',
+              target: '/pagination',
+              mode: 'router'
+            },
+            {
+              title: 'Reveal',
+              target: '/reveal',
+              mode: 'router'
+            },
+            {
+              title: 'Slider',
+              target: '/slider',
+              mode: 'router'
+            },
+            {
+              title: 'Switch',
+              target: '/switch',
+              mode: 'router'
+            },
+            {
+              title: 'Tabs',
+              target: '/tabs',
+              mode: 'router'
+            },
+            {
+              title: 'Tooltip',
+              target: '/tooltip',
+              mode: 'router'
+            }
+          ]
+        },
+        {
+          title: 'Helpers',
+          target: '#',
+          submenu: [
+            {
+              title: 'Standard Menu',
+              target: '/standard-menu',
+              mode: 'router'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  components: {
+    TopBar
+  },
   mounted () {
     this.offCanvas = new Foundation.OffCanvas($('#offCanvas'))
     this.dropdownMenu = new Foundation.DropdownMenu($('#mainDropDown'))
@@ -74,7 +170,9 @@ export default {
 
 <style lang="scss">
   @import './styles/global';
-
+  body {
+    background-color: $light-gray;
+  }
   .off-canvas-content .content-wrapper {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
