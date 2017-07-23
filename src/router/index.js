@@ -8,7 +8,7 @@ import Home from '@/components/core/Home'
 
 // Foundation Core Components
 import Accordion from '@/components/core/Accordion'
-import AccordionMenu from '@/components/core/AccordionMenu'
+import AccordionMenuPage from '@/components/pages/AccordionMenuPage'
 import Breadcrumbs from '@/components/core/Breadcrumbs'
 import DrilldownMenu from '@/components/core/DrilldownMenu'
 import Dropdown from '@/components/core/Dropdown'
@@ -41,7 +41,7 @@ export default new Router({
     { name: 'Hello', path: '/', component: Hello },
     { name: 'Home', path: '/components/home', component: Home },
     { name: 'accordion', path: '/components/accordion', component: Accordion },
-    { name: 'accordion-menu', path: '/components/accordion-menu', component: AccordionMenu },
+    { name: 'accordion-menu', path: '/components/accordion-menu', component: AccordionMenuPage },
     { name: 'breadcrumbs', path: '/components/breadcrumbs', component: Breadcrumbs },
     { name: 'drilldown-menu', path: '/components/drilldown-menu', component: DrilldownMenu },
     { name: 'dropdown', path: '/components/dropdown', component: Dropdown },
