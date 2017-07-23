@@ -40,7 +40,7 @@ export default {
   name: 'app',
   data () {
     return {
-      title: 'Zurb Vue',
+      title: 'NeeV',
       target: '/',
       mode: 'router',
       mainMenu: [
