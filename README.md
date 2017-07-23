@@ -1,4 +1,4 @@
-# vue-sandbox
+# Zurb Vue
 
 > A Vue.js project
 
