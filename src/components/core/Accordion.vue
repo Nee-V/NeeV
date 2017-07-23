@@ -10,22 +10,20 @@
     v-bind:data-deep-link-smudge="dLSmudge"
     v-bind:data-deep-link-smudge-delay="dLSmudgeDelay"
     v-bind:data-update-history="history">
-    <li
-      v-bind:class="[index === 0 ? 'is-active' : '', 'accordion-item']"
-      data-accordion-item v-for="(panel, index) in panels">
-      <a v-bind:href="[dL === true ? '#accordion-' + (index + 1) : '#']" class="accordion-title">{{ panel.title }}</a>
-      <div class="accordion-content" data-tab-content>
-        {{ panel.content }}
-      </div>
-    </li>
+    <accordion-tab v-for="(panel, index) in panels" :index="index" :panel="panel" :key="index":class="[index === 0 ? 'is-active' : '', 'accordion-item']"></accordion-tab>
   </ul>
 </template>
 
 <script>
+import AccordionTab from './Accordion/AccordionTab.vue'
+
 export default {
   name: 'accordion',
   mounted () {
     this.accordion = new Foundation.Accordion($('#accordion'))
+  },
+  components: {
+    AccordionTab
   },
   data () {
     return {

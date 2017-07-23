@@ -8,7 +8,7 @@
     v-bind:data-submenu-toggle-text="toggleText"
     v-bind:data-slide-speed="speed">
 
-    <li v-for="(link, index) in links">
+    <li v-for="(link, index) in menuStructure">
       <router-link
         v-if="link.mode === 'router' || (menuMode === 'router' && link.mode !== 'standard')"
         v-bind:to="link.target" exact>
@@ -25,14 +25,6 @@
         </li>
       </ul>
     </li>
-    <li>
-      <a>Item 1</a>
-      <ul class="menu vertical nested">
-        <li><a>Item 1A</a></li>
-        <li><a>Item 1B</a></li>
-      </ul>
-    </li>
-    <li><a>Item 2</a></li>
   </ul>
 </template>
 
@@ -48,14 +40,23 @@ export default {
     return {
       msg: 'Accordion Menu',
       multi: this.multiExpand ? this.multiExpand : false,
+      menuStructure: this.menu ? this.menu : [],
       toggle: this.submenuToggle ? this.submenuToggle : false,
       toggleText: this.submenuToggleText ? this.submenuToggleText : false,
       speed: this.slideSpeed ? this.slideSpeed : 250,
-      links: this.menuLinks ? this.menuLinks : [],
       menuMode: this.mode ? this.mode : 'links'
     }
   },
   props: {
+    menu: {
+      type: Array,
+      default: () => [
+        {
+          title: 'Home',
+          target: '/'
+        }
+      ]
+    },
     slideSpeed: {
       type: Number,
       default: () => 250
@@ -71,37 +72,6 @@ export default {
     submenuToggleText: {
       type: String,
       default: () => 'Back'
-    },
-    menuLinks: {
-      type: Array,
-      default: () => [
-        {
-          title: 'Home',
-          target: '/',
-          type: 'absolute',
-          mode: 'router'
-        },
-        {
-          title: 'Components',
-          target: '/',
-          type: 'absolute',
-          mode: 'standard',
-          submenu: [
-            {
-              title: 'Accordion',
-              target: '/accordion',
-              type: 'absolute',
-              mode: 'router'
-            },
-            {
-              title: 'Accordion Menu',
-              target: '/accordion-menu',
-              type: 'absolute',
-              mode: 'router'
-            }
-          ]
-        }
-      ]
     },
     mode: {
       type: String,

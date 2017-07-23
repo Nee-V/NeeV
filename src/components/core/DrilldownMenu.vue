@@ -1,13 +1,27 @@
 <template>
-  <ul id="drilldown" class="vertical menu" data-drilldown>
-    <li>
-      <a>Item 1</a>
-      <ul class="vertical menu">
-        <li><a>Item 1A</a></li>
-        <!-- ... -->
+  <ul id="drilldown" class="vertical menu drilldown" data-drilldown data-auto-height="true" data-animate-height="true">
+    <li v-for="link in menuStructure">
+      <router-link
+        v-if="(link.mode === 'router' || (menuMode === 'router' && link.mode !== 'standard')) && link.target"
+        v-bind:to="link.target" exact>
+        {{ link.title }}
+      </router-link>
+      <a v-else :href="link.target">{{ link.title }}</a>
+      <ul class="menu vertical" v-if="link.submenu" data-submenu>
+        <li v-for="link in link.submenu">
+          <router-link
+            v-if="(link.mode === 'router' || (menuMode === 'router' && link.mode !== 'standard')) && link.target"
+            v-bind:to="link.target" exact>
+            {{ link.title }}
+          </router-link>
+          <a
+            v-else
+            v-bind:href="link.target">
+            {{ link.title }}
+          </a>
+        </li>
       </ul>
     </li>
-    <li><a>Item 2</a></li>
   </ul>
 </template>
 
@@ -22,7 +36,24 @@ export default {
   },
   data () {
     return {
-      msg: 'Drilldown Menu'
+      msg: 'Drilldown Menu',
+      menuStructure: this.menu ? this.menu : [],
+      menuMode: this.mode ? this.mode : 'router'
+    }
+  },
+  props: {
+    menu: {
+      type: Array,
+      default: () => [
+        {
+          title: 'Home',
+          target: '/'
+        }
+      ]
+    },
+    mode: {
+      type: String,
+      default: () => 'router'
     }
   },
   destroyed () {

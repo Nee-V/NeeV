@@ -1,15 +1,31 @@
 <template>
   <ul id="dropdown-menu" class="dropdown menu" data-dropdown-menu>
-    <li>
-      <a>Item 1</a>
-      <ul class="menu">
-        <li><a>Item 1A</a></li>
-        <!-- ... -->
+    <li v-for="(link, index) in menuStructure">
+      <router-link
+        v-if="link.mode === 'router' || (menuMode === 'router' && link.mode !== 'standard')"
+        v-bind:to="link.target" exact>
+        {{ link.title }}
+      </router-link>
+      <a
+        v-else
+        v-bind:href="link.target">
+        {{ link.title }}
+      </a>
+      <ul class="menu vertical" v-if="link.submenu">
+        <li v-for="sublink in link.submenu">
+          <router-link
+            v-if="link.mode === 'router' || (menuMode === 'router' && link.mode !== 'standard')"
+            v-bind:to="sublink.target" exact>
+            {{ sublink.title }}
+          </router-link>
+          <a
+            v-else
+            v-bind:href="sublink.target">
+            {{ sublink.title }}
+          </a>
+        </li>
       </ul>
     </li>
-    <li><a>Item 2</a></li>
-    <li><a>Item 3</a></li>
-    <li><a>Item 4</a></li>
   </ul>
 </template>
 
@@ -24,7 +40,18 @@ export default {
   },
   data () {
     return {
-      msg: 'Dropdown Menu'
+      menuMode: this.mode ? this.mode : 'links',
+      menuStructure: this.menu ? this.menu : []
+    }
+  },
+  props: {
+    mode: {
+      type: String,
+      default: () => 'router'
+    },
+    menu: {
+      type: Array,
+      default: () => []
     }
   },
   destroyed () {

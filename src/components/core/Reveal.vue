@@ -1,18 +1,15 @@
 <template>
   <div class="wrapper">
-    <div id="reveal-dialog" class="reveal" data-reveal>
-      <h1>Awesome. I Have It.</h1>
-      <p class="lead">Your couch. It is mine.</p>
-      <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-      <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <p><a v-on:click="openReveal()">Click me for a modal</a></p>
+    <reveal-content :id="revealId" :closeButton="exitButton">
+      <slot></slot>
+    </reveal-content>
+    <reveal-trigger :id="revealId"></reveal-trigger>
   </div>
 </template>
 
 <script>
+import RevealContent from './Reveal/RevealContent.vue'
+import RevealTrigger from './Reveal/RevealTrigger.vue'
 export default {
   name: 'reveal',
   mounted () {
@@ -21,18 +18,25 @@ export default {
       animationIn: 'scale-in-up'
     })
   },
+  components: {
+    RevealContent,
+    RevealTrigger
+  },
   data () {
     return {
-      msg: 'Reveal'
+      msg: 'Reveal',
+      revealId: this.id ? this.id : 'reveal-dialog',
+      exitButton: this.closeButton ? this.closeButton : false
     }
   },
-  methods: {
-    // Added the below openReveal method for two reasons:
-    // 1) There was a bug preventing the reveal from working once
-    // you navigated away and back to the reveal component.
-    // 2) Most dialogs will need to be opened using code.
-    openReveal () {
-      this.reveal.open()
+  props: {
+    id: {
+      type: String,
+      default: () => 'reveal-dialog'
+    },
+    closeButton: {
+      type: Boolean,
+      default: () => false
     }
   },
   destroyed () {
