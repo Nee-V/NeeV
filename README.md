@@ -1,7 +1,8 @@
 # NeeV
 
 > A collection of VueJS components based off the Zurb Foundation for Sites framework. Each component shall be completely configurable using props.
-> It is still in the early stages of development and what may work one day, may not work the next. Please don't use in production for the time being as we'd hate for any breaking changes to affect you.
+
+> The component collection is still in the early stages of development and what may work one day, may not work the next. Please don't use in production for the time being as we'd hate for any breaking changes to affect you.
 
 ## Build Setup
 
