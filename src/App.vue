@@ -45,7 +45,7 @@ export default {
       mode: 'router',
       mainMenu: [
         {
-          title: 'Zurb Vue',
+          title: 'NeeV',
           target: '/',
           mode: 'router',
           class: 'logo'
