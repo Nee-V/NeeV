@@ -4,12 +4,19 @@
 
 > The component collection is still in the early stages of development and what may work one day, may not work the next. Please don't use in production for the time being as we'd hate for any breaking changes to affect you.
 
-## Build Setup
+## Requirements & Installation
 
+The basic requirements for installing NeeV are NodeJS & NPM.
+
+All of the package dependencies are managed by npm, so to install these just run:
 ``` bash
 # install dependencies
 npm install
+```
 
+## Build Setup
+
+``` bash
 # serve with hot reload at localhost:8080
 npm run dev
 
