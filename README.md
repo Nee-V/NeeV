@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/codetheorist/NeeV.svg?branch=master)](https://travis-ci.org/codetheorist/NeeV)
-
 # NeeV
 
 > From the Hindi word, meaning Foundation.
