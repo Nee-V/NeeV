@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Nee-V/NeeV.svg?branch=master)](https://travis-ci.org/Nee-V/NeeV)
+
 # NeeV
 
 > From the Hindi word, meaning Foundation.
