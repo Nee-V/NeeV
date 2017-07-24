@@ -36,7 +36,7 @@ export default {
     return {
       msg: 'Slider',
       dataValue: this.currentValue ? this.currentValue : 0,
-      dataEnd: 200,
+      dataEnd: this.max ? this.max : 100,
       isVertical: this.verticalLayout ? this.verticalLayout : false,
       isDisabled: this.disabled ? this.disabled : false,
       stepValue: this.stepSize ? this.stepSize : 5,
@@ -49,6 +49,10 @@ export default {
       type: Number,
       default: () => 60
     },
+    max: {
+      type: Number,
+      default: () => 100
+    },
     verticalLayout: {
       type: Boolean,
       default: () => false
@@ -59,7 +63,7 @@ export default {
     },
     stepSize: {
       type: Number,
-      default: () => 20
+      default: () => 10
     },
     sliderId: {
       type: String,
