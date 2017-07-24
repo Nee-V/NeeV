@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Nee-V/NeeV.svg?branch=master)](https://travis-ci.org/Nee-V/NeeV)
+[![Build Status](https://travis-ci.org/Nee-V/NeeV.svg?branch=master)](https://travis-ci.org/Nee-V/NeeV)[![dependencies Status](https://david-dm.org/Nee-V/NeeV/status.svg)](https://david-dm.org/Nee-V/NeeV)[![devDependencies Status](https://david-dm.org/Nee-V/NeeV/dev-status.svg)](https://david-dm.org/Nee-V/NeeV?type=dev)
 
 # NeeV
 
