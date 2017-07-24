@@ -19,21 +19,21 @@
         v-bind:href="link.target">
         {{ link.title }}
       </a>
-      <ul class="menu vertical" v-if="link.submenu">
-        <li v-for="sublink in link.submenu">
-          <a v-bind:href="sublink.target">{{ sublink.title }}</a>
-        </li>
-      </ul>
+      <standard-menu v-if="link.submenu" :menu="link.submenu" :vertical="true"></standard-menu>
     </li>
   </ul>
 </template>
 
 <script>
+import StandardMenu from '@/components/helpers/StandardMenu.vue'
 export default {
   mounted () {
     this.accordionMenu = new Foundation.AccordionMenu($('#accordion-menu'), {
       // These options can be declarative using the data attributes
     })
+  },
+  components: {
+    StandardMenu
   },
   name: 'accordion-menu',
   data () {
