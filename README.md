@@ -6,12 +6,15 @@
 
 ## Requirements & Installation
 
-The basic requirements for installing NeeV are NodeJS & NPM.
+The basic requirements for installing NeeV are NodeJS & NPM (or Yarn).
 
-All of the package dependencies are managed by npm, so to install these just run:
+All of the package dependencies are managed by NPM (or Yarn), so to install these just run:
 ``` bash
 # install dependencies
 npm install
+
+# or
+yarn install
 ```
 
 ## Build Setup
