@@ -1,17 +1,22 @@
 # NeeV
 
-> A collection of VueJS components based off the Zurb Foundation for Sites framework. Each component shall be completely configurable using props.
+> From the Hindi word, meaning Foundation.
 
-> The component collection is still in the early stages of development and what may work one day, may not work the next. Please don't use in production for the time being as we'd hate for any breaking changes to affect you.
+A collection of VueJS components based off the Zurb Foundation for Sites framework. Each component shall be completely configurable using props.
+
+The component collection is still in the early stages of development and what may work one day, may not work the next. Please don't use in production for the time being as we'd hate for any breaking changes to affect you.
 
 ## Requirements & Installation
 
-The basic requirements for installing NeeV are NodeJS & NPM.
+The basic requirements for installing NeeV are NodeJS & NPM (or Yarn).
 
-All of the package dependencies are managed by npm, so to install these just run:
+All of the package dependencies are managed by NPM (or Yarn), so to install these just run:
 ``` bash
 # install dependencies
 npm install
+
+# or
+yarn install
 ```
 
 ## Build Setup
