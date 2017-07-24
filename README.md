@@ -24,7 +24,6 @@ yarn install
 To start a development server, with hot reload, run:
 
 ``` bash
-# serve with hot reload at localhost:8080
 npm run dev
 ```
 
@@ -33,14 +32,12 @@ npm run dev
 When building for production, you can produce a fully minified build using:
 
 ``` bash
-# build for production with minification
 npm run build
 ```
 
 Additionaly, if you would also like to view the analyzer report when building, simply append the `--report` flag to the command, like so:
 
 ``` bash
-# build for production and view the bundle analyzer report
 npm run build --report
 ```
 
@@ -49,20 +46,17 @@ npm run build --report
 To run the basic unit tests, use:
 
 ``` bash
-# run unit tests
 npm run unit
 ```
 
 For end to end testing, run:
 
 ``` bash
-# run unit tests
 npm run e2e
 ```
 
 To run all tests, then it's:
 
 ``` bash
-# run unit tests
 npm run test
 ```
