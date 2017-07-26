@@ -1,23 +1,19 @@
 <template>
   <div id="orbit" class="orbit" role="region" :aria-label="label" data-orbit data-timer-delay='2000'>
     <ul class="orbit-container">
-      <button class="orbit-previous" v-if="arrows"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-      <button class="orbit-next" v-if="arrows"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-      <li  v-bind:class="index === 0 ? 'is-active' : ''" class="orbit-slide" v-for="(image, index) in images">
-        <img class="orbit-image" :src="image.url" v-bind:alt="image.alt">
-        <figcaption class="orbit-caption show-for-medium">{{ image.title }}</figcaption>
-      </li>
+      <orbit-arrow v-if="arrows" direction="prev"></orbit-arrow>
+      <orbit-arrow v-if="arrows" direction="next"></orbit-arrow>
+      <orbit-slide v-bind:class="index === 0 ? 'is-active' : ''" v-for="(image, index) in images" :key="index" :image="image"></orbit-slide>
     </ul>
-    <nav class="orbit-bullets" v-if="dots">
-      <button v-bind:class="index === 0 ? 'is-active' : ''" v-for="(image, index) in images" :data-slide="index">
-        <span class="show-for-sr">image.title</span>
-        <span v-if="index === 0" class="show-for-sr">Current Slide</span>
-      </button>
-    </nav>
+    <orbit-bullets v-if="dots" :images="images"></orbit-bullets>
   </div>
 </template>
 
 <script>
+import OrbitArrow from './Orbit/OrbitArrow.vue'
+import OrbitBullets from './Orbit/OrbitBullets.vue'
+import OrbitSlide from './Orbit/OrbitSlide.vue'
+
 export default {
   name: 'orbit',
   mounted () {
@@ -25,6 +21,11 @@ export default {
       // These options can be declarative using the data attributes
       timerDelay: 3000
     })
+  },
+  components: {
+    OrbitArrow,
+    OrbitBullets,
+    OrbitSlide
   },
   data () {
     return {
