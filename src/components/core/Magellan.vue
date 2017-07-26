@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <ul id="magellan" class="horizontal menu" data-magellan data-sticky>
+    <ul id="magellan" class="horizontal menu" data-magellan>
       <li><a href="#first">First</a></li>
       <li><a href="#second">Second</a></li>
       <li><a href="#third">Third</a></li>
