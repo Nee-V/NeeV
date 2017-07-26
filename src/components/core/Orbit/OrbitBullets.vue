@@ -1,6 +1,6 @@
 <template>
-  <nav class="orbit-bullets">
-    <button v-bind:class="index === 0 ? 'is-active' : ''" v-for="(image, index) in images">
+  <nav>
+    <button v-bind:class="index === 0 ? 'is-active' : ''" v-for="(image, index) in images" :data-slide="index">
       <span :value="image.title" class="show-for-sr"></span>
       <span v-if="index === 0" class="show-for-sr">Current Slide</span>
     </button>
@@ -18,7 +18,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
