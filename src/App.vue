@@ -25,7 +25,7 @@
         <a class="button small menu-button hide-for-medium" data-toggle="offCanvas">Menu</a>
       </top-bar>
 
-      <div class="content-wrapper">
+      <div class="content-wrapper row">
         <router-view></router-view>
       </div>
 
