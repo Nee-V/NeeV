@@ -1,43 +1,64 @@
 <template>
-  <ul
-    id="accordion"
-    class="accordion"
-    data-accordion
-    v-bind:data-slide-speed="speed"
-    v-bind:data-multi-expand="multi"
-    v-bind:data-allow-all-closed="allClosed"
-    v-bind:data-deep-link="dL"
-    v-bind:data-deep-link-smudge="dLSmudge"
-    v-bind:data-deep-link-smudge-delay="dLSmudgeDelay"
-    v-bind:data-update-history="history">
-    <accordion-tab v-for="(panel, index) in panels" :index="index" :panel="panel" :key="index":class="[index === 0 ? 'is-active' : '', 'accordion-item']"></accordion-tab>
-  </ul>
+  <div class="wrapper">
+    <ul
+      :id="id"
+      class="accordion"
+      data-accordion>
+      <accordion-tab v-for="(panel, index) in panels" :index="index" :panel="panel" :key="index":class="[index === 0 ? 'is-active' : '', 'accordion-item']"></accordion-tab>
+    </ul>
+  </div>
 </template>
 
 <script>
 import AccordionTab from './Accordion/AccordionTab.vue'
 
+let accordionSettings = [
+  'slideSpeed',
+  'multiExpand',
+  'allowAllClosed',
+  'deepLink',
+  'deepLinkSmudge',
+  'deepLinkSmudgeDelay',
+  'updateHistory'
+]
+
 export default {
   name: 'accordion',
   mounted () {
-    this.accordion = new Foundation.Accordion($('#accordion'))
+    // Initialize the Accordion once the component has been mounted
+    this.accordion = new Foundation.Accordion($('#' + this.id), this.props)
+  },
+  computed: {
+    // Return our computed props for use in the mounted and watch methods
+    props () {
+      let newSettings = {}
+      for (var i = 0; i < accordionSettings.length; i++) {
+        newSettings[accordionSettings[i]] = this.$props[accordionSettings[i]]
+      }
+      return newSettings
+    }
+  },
+  watch: {
+    // Watch our props to re-init Accordion when a prop changes
+    props: function (val) {
+      this.accordion = new Foundation.Accordion($('#' + this.id), this.props)
+    }
   },
   components: {
+    // Initialize our sub components
     AccordionTab
   },
   data () {
     return {
-      msg: 'Accordion',
-      speed: this.slideSpeed ? this.slideSpeed : 250,
-      multi: this.multiExpand ? this.multiExpand : false,
-      allClosed: this.allowAllClosed ? this.allowAllClosed : false,
-      dL: this.deepLink ? this.deepLink : false,
-      dLSmudge: this.deepLinkSmudge ? this.deepLinkSmudge : false,
-      dLSmudgeDelay: this.deepLinkSmudgeDelay ? this.deepLinkSmudgeDelay : 300,
-      history: this.updateHistory ? this.updateHistory : false
+      msg: 'Accordion'
     }
   },
   props: {
+    id: {
+      type: String,
+      default: () => 'accordion'
+    },
+    // All of the default Accordion JS options, available as props
     slideSpeed: {
       type: Number,
       default: () => 250
@@ -66,6 +87,7 @@ export default {
       type: Boolean,
       default: () => false
     },
+    // Our Accordion panels, these are currently not 'watched' for re-initialization.
     panels: {
       type: Array,
       default: () => [
@@ -81,6 +103,7 @@ export default {
     }
   },
   destroyed () {
+    // Destroy our Accordion instance
     this.accordion.destroy()
   }
 }

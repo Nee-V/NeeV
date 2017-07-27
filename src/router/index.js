@@ -7,8 +7,6 @@ import Hello from '@/components/core/Hello'
 import Home from '@/components/core/Home'
 
 // Foundation Core Components
-import Accordion from '@/components/core/Accordion'
-import AccordionMenuPage from '@/components/pages/AccordionMenuPage'
 import Breadcrumbs from '@/components/core/Breadcrumbs'
 import DrilldownMenu from '@/components/core/DrilldownMenu'
 import Dropdown from '@/components/core/Dropdown'
@@ -28,6 +26,8 @@ import ProductCard from '@/components/blocks/ProductCard'
 import StandardMenu from '@/components/helpers/StandardMenu'
 
 // Pages
+import AccordionPage from '@/components/pages/AccordionPage'
+import AccordionMenuPage from '@/components/pages/AccordionMenuPage'
 import Components from '@/components/pages/Components'
 
 // Initialize Vue Router
@@ -40,7 +40,7 @@ export default new Router({
     { name: 'components-page', path: '/components', component: Components },
     { name: 'Hello', path: '/', component: Hello },
     { name: 'Home', path: '/components/home', component: Home },
-    { name: 'accordion', path: '/components/accordion', component: Accordion },
+    { name: 'accordion', path: '/components/accordion', component: AccordionPage },
     { name: 'accordion-menu', path: '/components/accordion-menu', component: AccordionMenuPage },
     { name: 'breadcrumbs', path: '/components/breadcrumbs', component: Breadcrumbs },
     { name: 'drilldown-menu', path: '/components/drilldown-menu', component: DrilldownMenu },

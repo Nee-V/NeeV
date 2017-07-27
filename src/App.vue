@@ -148,18 +148,19 @@ export default {
               mode: 'router'
             }
           ]
-        },
-        {
-          title: 'Helpers',
-          target: '#',
-          submenu: [
-            {
-              title: 'Standard Menu',
-              target: '/standard-menu',
-              mode: 'router'
-            }
-          ]
         }
+        // ,
+        // {
+        //   title: 'Helpers',
+        //   target: '#',
+        //   submenu: [
+        //     {
+        //       title: 'Standard Menu',
+        //       target: '/standard-menu',
+        //       mode: 'router'
+        //     }
+        //   ]
+        // }
       ]
     }
   },
