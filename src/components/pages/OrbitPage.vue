@@ -4,23 +4,28 @@
       <h2>{{ title }}</h2>
       <p>Tabs are elements that help you organize and navigate multiple documents in a single container. They can be used for switching between items in the container.</p>
       <div class="callout success">
-        <tabs
-          :panels="panels"
-          :id="id"
-          :auto-focus="autoFocus"
-          :wrap-on-keys="wrapOnKeys"
-          :match-height="matchHeight"
-          :active-collapse="activeCollapse"
-          :deep-link="deepLink"
-          :deep-link-smudge="deepLinkSmudge"
-          :deep-link-smudge-delay="deepLinkSmudgeDelay"
-          :link-class="linkClass"
-          :link-active-class="linkActiveClass"
-          :panel-class="panelClass"
-          :panel-active-class="panelActiveClass"
-          :update-history="updateHistory"
-          :expand-tabs="expandTabs">
-        </tabs>
+        <orbit
+          :auto-play="autoPlay"
+          :slides="slides"
+          :container-class="containerClass"
+          :slide-class="slideClass"
+          :box-of-bullets="boxOfBullets"
+          :prev-class="prevClass"
+          :next-class="nextClass"
+          :anim-in-from-right="animInFromRight"
+          :anim-out-to-right="animOutToRight"
+          :anim-in-from-left="animInFromLeft"
+          :anim-out-to-left="animOutToLeft"
+          :geo-sync="geoSync"
+          :accessible="accessible"
+          :use-m-u-i="useMUI"
+          :pause-on-hover="pauseOnHover"
+          :swipe="swipe"
+          :bullets="bullets"
+          :infinite-wrap="infiniteWrap"
+          :nav-buttons="navButtons"
+          :timer-delay="timerDelay">
+        </orbit>
       </div>
     </div>
     <div class="medium-10 medium-offset-1 columns">
@@ -30,13 +35,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Auto Focus</h5>
-              <toggle-switch id="autoFocus" name="autoFocus" :checked="autoFocus" v-model="autoFocus"></toggle-switch>
+              <h5>Bullets</h5>
+              <toggle-switch id="bullets" name="bullets" :checked="bullets" v-model="bullets"></toggle-switch>
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Allows the window to scroll to content of active pane on load if set to true. Not recommended if more than one tab panel per page.</p>
+              <p>Allows Orbit to automatically animate on page load.</p>
             </div>
           </div>
         </div>
@@ -46,13 +51,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Expand Tabs</h5>
-              <toggle-switch id="expandTabs" name="expandTabs" :checked="expandTabs" v-model="expandTabs"></toggle-switch>
+              <h5>Nav Buttons</h5>
+              <toggle-switch id="navButtons" name="navButtons" :checked="navButtons" v-model="navButtons"></toggle-switch>
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Makes the tab links evenly distibute across the container.</p>
+              <p>Allows Orbit to automatically animate on page load.</p>
             </div>
           </div>
         </div>
@@ -62,13 +67,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Wrap On Keys</h5>
-              <toggle-switch id="wrapOnKeys" name="wrapOnKeys" :checked="wrapOnKeys" v-model="wrapOnKeys"></toggle-switch>
+              <h5>Anim In From Right</h5>
+              <input id="animInFromRight" name="animInFromRight" v-model="animInFromRight" />
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Allows keyboard input to 'wrap' around the tab links.</p>
+              <p>Motion UI animation class to apply.</p>
             </div>
           </div>
         </div>
@@ -78,13 +83,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Match Height</h5>
-              <toggle-switch id="matchHeight" name="matchHeight" :checked="matchHeight" v-model="matchHeight"></toggle-switch>
+              <h5>Anim Out To Right</h5>
+              <input id="animOutToRight" name="animOutToRight" v-model="animOutToRight" />
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Allows the tab content panes to match heights if set to true.</p>
+              <p>Motion UI animation class to apply.</p>
             </div>
           </div>
         </div>
@@ -94,13 +99,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Update History</h5>
-              <toggle-switch id="updateHistory" name="updateHistory" :checked="updateHistory" v-model="updateHistory"></toggle-switch>
+              <h5>Anim In From Left</h5>
+              <input id="animInFromLeft" name="animInFromLeft" v-model="animInFromLeft" />
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Update the browser history with the open tab.</p>
+              <p>Motion UI animation class to apply.</p>
             </div>
           </div>
         </div>
@@ -110,13 +115,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Active Collapse</h5>
-              <toggle-switch id="activeCollapse" name="activeCollapse" :checked="activeCollapse" v-model="activeCollapse"></toggle-switch>
+              <h5>Anim Out To Left</h5>
+              <input id="animOutToLeft" name="animOutToLeft" v-model="animOutToLeft" />
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Allows active tabs to collapse when clicked.</p>
+              <p>Motion UI animation class to apply.</p>
             </div>
           </div>
         </div>
@@ -126,13 +131,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Deep Link</h5>
-              <toggle-switch id="deepLink" name="deepLink" :checked="deepLink" v-model="deepLink"></toggle-switch>
+              <h5>Auto Play</h5>
+              <toggle-switch id="autoPlay" name="autoPlay" :checked="autoPlay" v-model="autoPlay"></toggle-switch>
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Allows the window to scroll to content of pane specified by hash anchor.</p>
+              <p>Allows Orbit to automatically animate on page load.</p>
             </div>
           </div>
         </div>
@@ -142,13 +147,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Deep Link Smudge</h5>
-              <toggle-switch id="deepLinkSmudge" name="deepLinkSmudge" :checked="deepLinkSmudge" v-model="deepLinkSmudge"></toggle-switch>
+              <h5>Timer Delay</h5>
+              <input id="timerDelay" name="timerDelay" v-model="timerDelay" />
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Adjust the deep link scroll to make sure the top of the tab panel is visible.</p>
+              <p>Amount of time, in ms, between slide transitions.</p>
             </div>
           </div>
         </div>
@@ -158,13 +163,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Smudge Delay</h5>
-              <input type="number" :value="deepLinkSmudgeDelay" v-model.number="deepLinkSmudgeDelay" name="deepLinkSmudgeDelay" id="deepLinkSmudgeDelay">
+              <h5>Infinite Wrap</h5>
+              <toggle-switch id="infiniteWrap" name="infiniteWrap" :checked="infiniteWrap" v-model="infiniteWrap"></toggle-switch>
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Animation time (ms) for the deep link adjustment.</p>
+              <p>Allows Orbit to infinitely loop through the slides.</p>
             </div>
           </div>
         </div>
@@ -174,13 +179,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Link Class</h5>
-              <input type="text" :value="linkClass" v-model="linkClass" name="linkClass" id="linkClass">
+              <h5>Swipe</h5>
+              <toggle-switch id="swipe" name="swipe" :checked="swipe" v-model="swipe"></toggle-switch>
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Class applied to `li`'s in tab link list.</p>
+              <p>Allows the Orbit slides to bind to swipe events for mobile. This requires an additional mobile swipe utility library.</p>
             </div>
           </div>
         </div>
@@ -190,13 +195,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Link Active Class</h5>
-              <input type="text" :value="linkActiveClass" v-model="linkActiveClass" name="linkActiveClass" id="linkActiveClass">
+              <h5>Pause on Hover</h5>
+              <toggle-switch id="pauseOnHover" name="pauseOnHover" :checked="pauseOnHover" v-model="pauseOnHover"></toggle-switch>
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Class applied to the active `li` in tab link list.</p>
+              <p>Allows the timing function to pause animation on hover.</p>
             </div>
           </div>
         </div>
@@ -206,13 +211,13 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Panel Class</h5>
-              <input type="text" :value="panelClass" v-model="panelClass" name="panelClass" id="panelClass">
+              <h5>Accessible</h5>
+              <toggle-switch id="accessible" name="accessible" :checked="accessible" v-model="accessible"></toggle-switch>
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Class applied to the content containers.</p>
+              <p>Allows Orbit to bind keyboard events to the slider, to animate frames with arrow keys.</p>
             </div>
           </div>
         </div>
@@ -222,18 +227,96 @@
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
             <div class="content">
-              <h5>Panel Active Class</h5>
-              <input type="text" :value="panelActiveClass" v-model="panelActiveClass" name="panelActiveClass" id="panelActiveClass">
+              <h5>Container Class</h5>
+              <input id="containerClass" name="containerClass" :checked="containerClass" v-model="containerClass">
             </div>
           </div>
           <div class="medium-8 large-8 columns" data-equalizer-watch>
             <div class="content">
-              <p>Class applied to the active content container.</p>
+              <p>Class applied to the container of Orbit.</p>
             </div>
           </div>
         </div>
 
         <hr>
+
+        <div class="row debug-row" data-equalizer>
+          <div class="medium-4 large-4 columns" data-equalizer-watch>
+            <div class="content">
+              <h5>Slide Class</h5>
+              <input id="slideClass" name="slideClass" :checked="slideClass" v-model="slideClass">
+            </div>
+          </div>
+          <div class="medium-8 large-8 columns" data-equalizer-watch>
+            <div class="content">
+              <p>Class applied to individual slides.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row debug-row" data-equalizer>
+          <div class="medium-4 large-4 columns" data-equalizer-watch>
+            <div class="content">
+              <h5>Box of Bullets</h5>
+              <input id="boxOfBullets" name="boxOfBullets" :checked="boxOfBullets" v-model="boxOfBullets">
+            </div>
+          </div>
+          <div class="medium-8 large-8 columns" data-equalizer-watch>
+            <div class="content">
+              <p>Class applied to the bullet container.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row debug-row" data-equalizer>
+          <div class="medium-4 large-4 columns" data-equalizer-watch>
+            <div class="content">
+              <h5>Prev Class</h5>
+              <input id="prevClass" name="prevClass" :checked="prevClass" v-model="prevClass">
+            </div>
+          </div>
+          <div class="medium-8 large-8 columns" data-equalizer-watch>
+            <div class="content">
+              <p>Class applied to the `previous` navigation button.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row debug-row" data-equalizer>
+          <div class="medium-4 large-4 columns" data-equalizer-watch>
+            <div class="content">
+              <h5>Next Class</h5>
+              <input id="nextClass" name="nextClass" :checked="nextClass" v-model="nextClass">
+            </div>
+          </div>
+          <div class="medium-8 large-8 columns" data-equalizer-watch>
+            <div class="content">
+              <p>Class applied to the `next` navigation button.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row debug-row" data-equalizer>
+          <div class="medium-4 large-4 columns" data-equalizer-watch>
+            <div class="content">
+              <h5>Use MUI</h5>
+              <input id="useMUI" name="useMUI" :checked="useMUI" v-model="useMUI">
+            </div>
+          </div>
+          <div class="medium-8 large-8 columns" data-equalizer-watch>
+            <div class="content">
+              <p>Boolean to flag the js to use motion ui classes or not. Default to true for backwards compatability.</p>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -241,47 +324,59 @@
 </template>
 
 <script>
-  import Tabs from '@/components/core/Tabs.vue'
+  import Orbit from '@/components/core/Orbit.vue'
   import ToggleSwitch from '@/components/core/ToggleSwitch.vue'
   import VueNumeric from 'vue-numeric'
+
   export default {
-    name: 'accordion-page',
+    name: 'orbit-page',
     components: {
-      Tabs,
+      Orbit,
       ToggleSwitch,
       VueNumeric
     },
     data () {
       return {
-        title: 'Tabs',
-        id: 'tabs',
-        deepLink: true,
-        deepLinkSmudge: false,
-        deepLinkSmudgeDelay: 300,
-        updateHistory: false,
-        autoFocus: false,
-        wrapOnKeys: true,
-        expandTabs: false,
-        matchHeight: false,
-        activeCollapse: false,
-        linkClass: 'tabs-title',
-        linkActiveClass: 'is-active',
-        panelClass: 'tabs-panel',
-        panelActiveClass: 'is-active',
-        panels: [
+        title: 'Orbit',
+        id: 'orbit',
+        containerClass: 'orbit-container',
+        slideClass: 'orbit-slide',
+        boxOfBullets: 'orbit-bullets',
+        prevClass: 'orbit-previous',
+        nextClass: 'orbit-next',
+        animInFromRight: 'slide-in-right',
+        animOutToRight: 'slide-out-right',
+        animInFromLeft: 'slide-in-left',
+        animOutToLeft: 'slide-out-left',
+        geoSync: '',
+        accessible: true,
+        useMUI: true,
+        pauseOnHover: true,
+        swipe: true,
+        bullets: true,
+        autoPlay: true,
+        infiniteWrap: true,
+        navButtons: true,
+        slides: [
           {
-            title: 'Tab 1',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-          },
-          {
-            title: 'Tab 2',
-            content: 'Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.'
-          },
-          {
-            title: 'Tab 3',
-            content: 'Curabitur sit amet dolor vitae justo vulputate semper in quis ipsum. Proin dignissim, eros vitae aliquet pellentesque, tortor odio molestie felis, in tempor lectus metus nec lacus.'
+            url: require('@/assets/img/orbit/01.jpg'),
+            title: 'Space, the final frontier.',
+            alt: 'Space'
+          }, {
+            url: require('@/assets/img/orbit/02.jpg'),
+            title: 'Lets Rocket!',
+            alt: 'Space'
+          }, {
+            url: require('@/assets/img/orbit/03.jpg'),
+            title: 'Encapsulating',
+            alt: 'Space'
+          }, {
+            url: require('@/assets/img/orbit/04.jpg'),
+            title: 'Outta This World',
+            alt: 'Space'
           }
-        ]
+        ],
+        timerDelay: 500
       }
     },
     mounted () {

@@ -14,30 +14,49 @@ import OrbitArrow from './Orbit/OrbitArrow.vue'
 import OrbitBullets from './Orbit/OrbitBullets.vue'
 import OrbitSlide from './Orbit/OrbitSlide.vue'
 
+let orbitSettings = [
+  // These options can be declarative using the data attributes
+  'timerDelay',
+  'bullets',
+  'navButtons',
+  'autoPlay',
+  'infiniteWrap',
+  'accessible',
+  'pauseOnHover',
+  'swipe',
+  'containerClass',
+  'slideClass',
+  'boxOfBullets',
+  'prevClass',
+  'nextClass',
+  'useMUI',
+  'animInFromRight',
+  'animOutToRight',
+  'animInFromLeft',
+  'animOutToLeft'
+]
+
 export default {
   name: 'orbit',
   mounted () {
-    this.orbit = new Foundation.Orbit($('#orbit'), {
-      // These options can be declarative using the data attributes
-      timerDelay: this.$props.timerDelay,
-      bullets: this.$props.bullets,
-      navButtons: this.$props.navButtons,
-      autoPlay: this.$props.autoPlay,
-      infiniteWrap: this.$props.infiniteWrap,
-      accessible: this.$props.accessible,
-      pauseOnHover: this.$props.pauseOnHover,
-      swipe: this.$props.swipe,
-      containerClass: this.$props.containerClass,
-      slideClass: this.$props.slideClass,
-      boxOfBullets: this.$props.boxOfBullets,
-      prevClass: this.$props.prevClass,
-      nextClass: this.$props.nextClass,
-      useMUI: this.$props.useMUI,
-      animInFromRight: this.$props.animInFromRight,
-      animOutToRight: this.$props.animOutToRight,
-      animInFromLeft: this.$props.animInFromLeft,
-      animOutToLeft: this.$props.animOutToLeft
-    })
+    this.orbit = new Foundation.Orbit($('#' + this.id), this.props)
+  },
+  computed: {
+    // Return our computed props for use in the mounted and watch methods
+    props () {
+      let newSettings = {}
+      for (var i = 0; i < orbitSettings.length; i++) {
+        newSettings[orbitSettings[i]] = this.$props[orbitSettings[i]]
+      }
+      return newSettings
+    }
+  },
+  watch: {
+    // Watch our props to re-init Accordion when a prop changes
+    props: function (val) {
+      $('#' + this.id).foundation('_reset')
+      this.orbit = new Foundation.Orbit($('#' + this.id), this.props)
+    }
   },
   components: {
     OrbitArrow,
@@ -54,6 +73,10 @@ export default {
     title: {
       type: String,
       default: () => 'Orbit'
+    },
+    id: {
+      type: String,
+      default: () => 'orbit'
     },
     containerClass: {
       type: String,
