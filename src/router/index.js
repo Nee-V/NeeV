@@ -14,7 +14,7 @@ import DropdownMenu from '@/components/core/DropdownMenu'
 import Magellan from '@/components/core/Magellan'
 // import Orbit from '@/components/core/Orbit'
 import Pagination from '@/components/core/Pagination'
-import Reveal from '@/components/core/Reveal'
+// import Reveal from '@/components/core/Reveal'
 import Slider from '@/components/core/Slider'
 import ToggleSwitch from '@/components/core/ToggleSwitch'
 // import Tabs from '@/components/core/Tabs'
@@ -31,6 +31,7 @@ import AccordionMenuPage from '@/components/pages/AccordionMenuPage'
 import Components from '@/components/pages/Components'
 import TabsPage from '@/components/pages/TabsPage'
 import OrbitPage from '@/components/pages/OrbitPage'
+import RevealPage from '@/components/pages/RevealPage'
 
 // Initialize Vue Router
 Vue.use(Router)
@@ -51,7 +52,7 @@ export default new Router({
     { name: 'magellan', path: '/components/magellan', component: Magellan },
     { name: 'orbit', path: '/components/orbit', component: OrbitPage },
     { name: 'pagination', path: '/components/pagination', component: Pagination },
-    { name: 'reveal', path: '/components/reveal', component: Reveal },
+    { name: 'reveal', path: '/components/reveal', component: RevealPage },
     { name: 'slider', path: '/components/slider', component: Slider },
     { name: 'switch', path: '/components/switch', component: ToggleSwitch },
     { name: 'tabs', path: '/components/tabs', component: TabsPage },

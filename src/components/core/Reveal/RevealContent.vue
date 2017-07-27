@@ -1,7 +1,7 @@
 <template>
-  <div :id="revealId" class="reveal" data-reveal>
+  <div :id="id" class="reveal" data-reveal>
     <slot></slot>
-    <button v-if="exitButton" class="close-button" data-close aria-label="Close modal" type="button">
+    <button v-if="closeButton" class="close-button" data-close aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -10,13 +10,6 @@
 <script>
   export default {
     name: 'reveal-trigger',
-    data () {
-      return {
-        revealId: this.id ? this.id : 'reveal-dialog',
-        buttonText: this.text ? this.text : 'Open Modal',
-        exitButton: this.closeButton ? this.closeButton : false
-      }
-    },
     props: {
       id: {
         type: String,
