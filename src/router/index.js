@@ -17,7 +17,7 @@ import Pagination from '@/components/core/Pagination'
 import Reveal from '@/components/core/Reveal'
 import Slider from '@/components/core/Slider'
 import ToggleSwitch from '@/components/core/ToggleSwitch'
-import Tabs from '@/components/core/Tabs'
+// import Tabs from '@/components/core/Tabs'
 import Tooltip from '@/components/core/Tooltip'
 
 // Foundation Building Blocks
@@ -29,6 +29,7 @@ import StandardMenu from '@/components/helpers/StandardMenu'
 import AccordionPage from '@/components/pages/AccordionPage'
 import AccordionMenuPage from '@/components/pages/AccordionMenuPage'
 import Components from '@/components/pages/Components'
+import TabsPage from '@/components/pages/TabsPage'
 
 // Initialize Vue Router
 Vue.use(Router)
@@ -52,7 +53,7 @@ export default new Router({
     { name: 'reveal', path: '/components/reveal', component: Reveal },
     { name: 'slider', path: '/components/slider', component: Slider },
     { name: 'switch', path: '/components/switch', component: ToggleSwitch },
-    { name: 'tabs', path: '/components/tabs', component: Tabs },
+    { name: 'tabs', path: '/components/tabs', component: TabsPage },
     { name: 'tooltip', path: '/components/tooltip', component: Tooltip },
     { name: 'blog-post-footer', path: '/blog-post-footer', component: BlogPostFooter },
     { name: 'product-card', path: '/product-card', component: ProductCard }

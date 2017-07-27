@@ -1,37 +1,119 @@
 <template>
   <div class="wrapper">
-    <ul id="tabs" class="tabs" data-tabs>
-      <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Tab 1</a></li>
-      <li class="tabs-title"><a href="#panel2d">Tab 2</a></li>
-      <li class="tabs-title"><a href="#panel3d">Tab 3</a></li>
+    <ul :id="id" :class="['tabs', expandTabs ? 'expanded' : '']" data-tabs>
+      <li :class="[linkClass, index === 0 ? linkActiveClass : '']" v-for="(panel, index) in panels"><a :href="'#panel' + index + 'd'">{{ panel.title }}</a></li>
     </ul>
 
     <div class="tabs-content" data-tabs-content="tabs">
-      <div class="tabs-panel is-active" id="panel1d">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-      <div class="tabs-panel" id="panel2d">
-        <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
-      </div>
-      <div class="tabs-panel" id="panel3d">
-        <p>Curabitur sit amet dolor vitae justo vulputate semper in quis ipsum. Proin dignissim, eros vitae aliquet pellentesque, tortor odio molestie felis, in tempor lectus metus nec lacus.</p>
+      <div :class="[panelClass, index === 0 ? panelActiveClass : '']" :id="'panel' + index + 'd'" v-for="(panel, index) in panels">
+        <p>{{ panel.content }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+let tabSettings = [
+  'deepLink',
+  'deepLinkSmudge',
+  'deepLinkSmudgeDelay',
+  'updateHistory',
+  'autoFocus',
+  'wrapOnKeys',
+  'matchHeight',
+  'activeCollapse',
+  'linkClass',
+  'linkActiveClass',
+  'panelClass',
+  'panelActiveClass'
+]
+
 export default {
   name: 'tabs',
   mounted () {
-    this.tabs = new Foundation.Tabs($('#tabs'), {
-      // These options can be declarative using the data attributes
-      matchHeight: false
-    })
+    this.tabs = new Foundation.Tabs($('#' + this.id), this.props)
+  },
+  computed: {
+    // Return our computed props for use in the mounted and watch methods
+    props () {
+      let newSettings = {}
+      for (var i = 0; i < tabSettings.length; i++) {
+        newSettings[tabSettings[i]] = this.$props[tabSettings[i]]
+      }
+      return newSettings
+    }
+  },
+  watch: {
+    // Watch our props to re-init Accordion when a prop changes
+    props: function (val) {
+      this.tabs = new Foundation.Tabs($('#' + this.id), this.props)
+    }
   },
   data () {
     return {
       msg: 'Tabs'
+    }
+  },
+  props: {
+    id: {
+      type: String,
+      default: () => 'tabs'
+    },
+    expandTabs: {
+      type: Boolean,
+      default: () => false
+    },
+    deepLink: {
+      type: Boolean,
+      default: () => true
+    },
+    deepLinkSmudge: {
+      type: Boolean,
+      default: () => false
+    },
+    deepLinkSmudgeDelay: {
+      type: Number,
+      default: () => 300
+    },
+    updateHistory: {
+      type: Boolean,
+      default: () => false
+    },
+    autoFocus: {
+      type: Boolean,
+      default: () => false
+    },
+    wrapOnKeys: {
+      type: Boolean,
+      default: () => true
+    },
+    matchHeight: {
+      type: Boolean,
+      default: () => false
+    },
+    activeCollapse: {
+      type: Boolean,
+      default: () => false
+    },
+    linkClass: {
+      type: String,
+      default: () => 'tabs-title'
+    },
+    linkActiveClass: {
+      type: String,
+      default: () => 'is-active'
+    },
+    panelClass: {
+      type: String,
+      default: () => 'tabs-panel'
+    },
+    panelActiveClass: {
+      type: String,
+      default: () => 'is-active'
+    },
+    panels: {
+      type: Array,
+      default: []
     }
   },
   destroyed () {
@@ -41,4 +123,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .tabs.expanded {
+    display: table;
+    width: 100%;
+    li {
+      float: none;
+      display: table-cell;
+      vertical-align: middle;
+      outline: 0;
+    }
+  }
 </style>
