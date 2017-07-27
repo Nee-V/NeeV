@@ -31,6 +31,7 @@ import AccordionMenuPage from '@/components/pages/AccordionMenuPage'
 import Components from '@/components/pages/Components'
 import TabsPage from '@/components/pages/TabsPage'
 import OrbitPage from '@/components/pages/OrbitPage'
+
 // Initialize Vue Router
 Vue.use(Router)
 

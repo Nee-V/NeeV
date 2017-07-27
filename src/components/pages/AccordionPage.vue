@@ -18,7 +18,7 @@
     </div>
     <div class="medium-10 medium-offset-1 columns">
       <h2>Settings</h2>
-      <div id="debug-panel">
+      <div id="debug-panel" class="callout secondary">
 
         <div class="row debug-row" data-equalizer>
           <div class="medium-4 large-4 columns" data-equalizer-watch>
