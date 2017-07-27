@@ -148,11 +148,6 @@ export default {
               mode: 'router'
             }
           ]
-        },
-        {
-          title: 'Component Page',
-          target: '/component-page',
-          mode: 'router'
         }
         // ,
         // {

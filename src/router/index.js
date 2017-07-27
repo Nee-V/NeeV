@@ -29,7 +29,6 @@ import StandardMenu from '@/components/helpers/StandardMenu'
 import AccordionPage from '@/components/pages/AccordionPage'
 import AccordionMenuPage from '@/components/pages/AccordionMenuPage'
 import Components from '@/components/pages/Components'
-import ComponentPage from '@/components/pages/ComponentPage'
 
 // Initialize Vue Router
 Vue.use(Router)
@@ -39,7 +38,6 @@ export default new Router({
   routes: [
     { name: 'standard-menu', path: '/standard-menu', component: StandardMenu },
     { name: 'components-page', path: '/components', component: Components },
-    { name: 'component-page', path: '/component-page', component: ComponentPage },
     { name: 'Hello', path: '/', component: Hello },
     { name: 'Home', path: '/components/home', component: Home },
     { name: 'accordion', path: '/components/accordion', component: AccordionPage },
