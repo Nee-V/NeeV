@@ -91,6 +91,10 @@ export default {
       type: String,
       default: () => 'slide-out-left'
     },
+    geoSync: {
+      type: String,
+      default: () => ''
+    },
     accessible: {
       type: Boolean,
       default: () => true

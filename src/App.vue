@@ -150,16 +150,22 @@ export default {
           ]
         },
         {
-          title: 'Helpers',
-          target: '#',
-          submenu: [
-            {
-              title: 'Standard Menu',
-              target: '/standard-menu',
-              mode: 'router'
-            }
-          ]
+          title: 'Component Page',
+          target: '/component-page',
+          mode: 'router'
         }
+        // ,
+        // {
+        //   title: 'Helpers',
+        //   target: '#',
+        //   submenu: [
+        //     {
+        //       title: 'Standard Menu',
+        //       target: '/standard-menu',
+        //       mode: 'router'
+        //     }
+        //   ]
+        // }
       ]
     }
   },

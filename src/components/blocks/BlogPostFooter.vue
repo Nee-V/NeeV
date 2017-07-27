@@ -16,7 +16,7 @@
 
       <div>
         <a href="#" class="blogpost-footer-author">
-          <img class="avatar" src="http://fillmurray.com/200/200" alt="" />
+          <img class="avatar" src="https://fillmurray.com/200/200" alt="" />
           <div>
             <p class="author">{{ this.author }}</p>
             <p class="bio">{{ this.bio }}</p>
