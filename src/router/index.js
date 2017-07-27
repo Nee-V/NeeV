@@ -9,7 +9,7 @@ import Home from '@/components/core/Home'
 // Foundation Core Components
 import Breadcrumbs from '@/components/core/Breadcrumbs'
 import DrilldownMenu from '@/components/core/DrilldownMenu'
-import Dropdown from '@/components/core/Dropdown'
+// import Dropdown from '@/components/core/Dropdown'
 import DropdownMenu from '@/components/core/DropdownMenu'
 import Magellan from '@/components/core/Magellan'
 // import Orbit from '@/components/core/Orbit'
@@ -29,6 +29,7 @@ import StandardMenu from '@/components/helpers/StandardMenu'
 import AccordionPage from '@/components/pages/AccordionPage'
 import AccordionMenuPage from '@/components/pages/AccordionMenuPage'
 import Components from '@/components/pages/Components'
+import DropdownPage from '@/components/pages/DropdownPage'
 import TabsPage from '@/components/pages/TabsPage'
 import OrbitPage from '@/components/pages/OrbitPage'
 import RevealPage from '@/components/pages/RevealPage'
@@ -47,7 +48,7 @@ export default new Router({
     { name: 'accordion-menu', path: '/components/accordion-menu', component: AccordionMenuPage },
     { name: 'breadcrumbs', path: '/components/breadcrumbs', component: Breadcrumbs },
     { name: 'drilldown-menu', path: '/components/drilldown-menu', component: DrilldownMenu },
-    { name: 'dropdown', path: '/components/dropdown', component: Dropdown },
+    { name: 'dropdown', path: '/components/dropdown', component: DropdownPage },
     { name: 'dropdown-menu', path: '/components/dropdown-menu', component: DropdownMenu },
     { name: 'magellan', path: '/components/magellan', component: Magellan },
     { name: 'orbit', path: '/components/orbit', component: OrbitPage },
