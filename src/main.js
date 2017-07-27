@@ -17,15 +17,11 @@ Vue.config.productionTip = false
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  modules: {
-    app: {
-      state: {
-        count: 0,
-        componentLayout: 'vertical'
-      },
-      mutations: {
-      }
-    }
+  state: {
+    count: 0,
+    componentLayout: 'vertical'
+  },
+  mutations: {
   }
 })
 
