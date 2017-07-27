@@ -12,7 +12,7 @@ import DrilldownMenu from '@/components/core/DrilldownMenu'
 import Dropdown from '@/components/core/Dropdown'
 import DropdownMenu from '@/components/core/DropdownMenu'
 import Magellan from '@/components/core/Magellan'
-import Orbit from '@/components/core/Orbit'
+// import Orbit from '@/components/core/Orbit'
 import Pagination from '@/components/core/Pagination'
 import Reveal from '@/components/core/Reveal'
 import Slider from '@/components/core/Slider'
@@ -30,7 +30,7 @@ import AccordionPage from '@/components/pages/AccordionPage'
 import AccordionMenuPage from '@/components/pages/AccordionMenuPage'
 import Components from '@/components/pages/Components'
 import TabsPage from '@/components/pages/TabsPage'
-
+import OrbitPage from '@/components/pages/OrbitPage'
 // Initialize Vue Router
 Vue.use(Router)
 
@@ -48,7 +48,7 @@ export default new Router({
     { name: 'dropdown', path: '/components/dropdown', component: Dropdown },
     { name: 'dropdown-menu', path: '/components/dropdown-menu', component: DropdownMenu },
     { name: 'magellan', path: '/components/magellan', component: Magellan },
-    { name: 'orbit', path: '/components/orbit', component: Orbit },
+    { name: 'orbit', path: '/components/orbit', component: OrbitPage },
     { name: 'pagination', path: '/components/pagination', component: Pagination },
     { name: 'reveal', path: '/components/reveal', component: Reveal },
     { name: 'slider', path: '/components/slider', component: Slider },
