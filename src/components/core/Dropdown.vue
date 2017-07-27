@@ -1,30 +1,44 @@
 <template>
   <div class="wrapper">
-    <button class="button" type="button" data-toggle="dropdown">Toggle Dropdown</button>
-    <div class="dropdown-pane top" id="dropdown" data-dropdown>
-      Example form in a dropdown.
-      <form>
-        <div class="row">
-          <div class="medium-6 columns">
-            <label>Name
-              <input type="text" placeholder="Kirk, James T.">
-            </label>
-          </div>
-          <div class="medium-6 columns">
-            <label>Rank
-              <input type="text" placeholder="Captain">
-            </label>
-          </div>
-        </div>
-      </form>
-    </div>
+    <button class="button" type="button" :data-toggle="id">{{ buttonText }}</button>
+    <div class="dropdown-pane top" :id="id" data-dropdown v-html="content"></div>
   </div>
 </template>
 
 <script>
+let dropdownSettings = [
+  'parentClass',
+  'hoverDelay',
+  'hover',
+  'hoverPane',
+  'vOffset',
+  'hOffset',
+  'positionClass',
+  'position',
+  'alignment',
+  'allowOverlap',
+  'allowBottomOverlap',
+  'trapFocus',
+  'autoFocus',
+  'closeOnClick'
+]
+let i = 0
+
 export default {
   name: 'dropdown',
   props: {
+    buttonText: {
+      type: String,
+      default: () => 'Toggle Dropdown'
+    },
+    id: {
+      type: String,
+      default: () => 'dropdown'
+    },
+    content: {
+      type: String,
+      default: () => ''
+    },
     parentClass: {
       type: String,
       default: () => ''
@@ -42,12 +56,12 @@ export default {
       default: () => false
     },
     vOffset: {
-      type: Number,
-      default: () => 0
+      type: String,
+      default: () => '0'
     },
     hOffset: {
-      type: Number,
-      default: () => 0
+      type: String,
+      default: () => '0'
     },
     positionClass: {
       type: String,
@@ -82,24 +96,26 @@ export default {
       default: () => false
     }
   },
+  computed: {
+    // Return our computed props for use in the mounted and watch methods
+    props () {
+      let newSettings = {}
+      for (i = 0; i < dropdownSettings.length; i++) {
+        newSettings[dropdownSettings[i]] = this.$props[dropdownSettings[i]]
+      }
+      return newSettings
+    }
+  },
+  watch: {
+    // Watch our props to re-init Accordion when a prop changes
+    props: function (val) {
+      $('#' + this.id).foundation('_destroy')
+      this.dropdown.destroy()
+      this.dropdown = new Foundation.Dropdown($('#' + this.id), this.props)
+    }
+  },
   mounted () {
-    this.dropdown = new Foundation.Dropdown($('#dropdown'), {
-      // These options can be declarative using the data attributes
-      parentClass: this.$props.parentClass,
-      hoverDelay: this.$props.hoverDelay,
-      hover: this.$props.hover,
-      hoverPane: this.$props.hoverPane,
-      vOffset: this.$props.vOffset,
-      hOffset: this.$props.hOffset,
-      positionClass: this.$props.positionClass,
-      position: this.$props.position,
-      alignment: this.$props.alignment,
-      allowOverlap: this.$props.allowOverlap,
-      allowBottomOverlap: this.$props.allowBottomOverlap,
-      trapFocus: this.$props.trapFocus,
-      autoFocus: this.$props.autoFocus,
-      closeOnClick: this.$props.closeOnClick
-    })
+    this.dropdown = new Foundation.Dropdown($('#' + this.id), this.props)
   },
   destroyed () {
     this.dropdown.destroy()
