@@ -184,4 +184,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .orbit-bullets {
+    margin-bottom: 0;
+  }
 </style>
