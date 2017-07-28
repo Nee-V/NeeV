@@ -3,7 +3,7 @@
     <div class="row">
       <div class="medium-10 medium-offset-1 columns">
         <h2>{{ title }}</h2>
-        <p>Modal dialogs, or pop-up windows, are handy for prototyping and production. Foundation includes Reveal, our jQuery modal plugin, to make this easy for you.</p>
+        <p>Dropdown panes are little happy sprites which can be revealed on click or hover.</p>
         <div class="callout success">
           <dropdown
             :button-text="buttonText"
