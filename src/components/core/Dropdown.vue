@@ -124,4 +124,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .button {
+    margin-bottom: 0;
+  }
 </style>

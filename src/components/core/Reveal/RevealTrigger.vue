@@ -1,5 +1,5 @@
 <template>
-  <p><a :class="['button']" :data-open="revealId">{{ buttonText }}</a></p>
+  <a :class="['button']" :data-open="revealId">{{ buttonText }}</a>
 </template>
 
 <script>
@@ -25,4 +25,7 @@
 </script>
 
 <style lang="scss" scoped>
+  .button {
+    margin-bottom: 0;
+  }
 </style>
