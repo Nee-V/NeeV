@@ -243,11 +243,6 @@ export default {
               mode: 'router'
             },
             {
-              title: 'Switch',
-              target: '/components/switch',
-              mode: 'router'
-            },
-            {
               title: 'Tabs',
               target: '/components/tabs',
               mode: 'router'
@@ -255,17 +250,6 @@ export default {
             {
               title: 'Tooltip',
               target: '/components/tooltip',
-              mode: 'router'
-            }
-          ]
-        },
-        {
-          title: 'Helpers',
-          target: '#',
-          submenu: [
-            {
-              title: 'Standard Menu',
-              target: '/standard-menu',
               mode: 'router'
             }
           ]

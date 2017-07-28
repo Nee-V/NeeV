@@ -133,11 +133,6 @@ export default {
               mode: 'router'
             },
             {
-              title: 'Switch',
-              target: '/components/switch',
-              mode: 'router'
-            },
-            {
               title: 'Tabs',
               target: '/components/tabs',
               mode: 'router'
