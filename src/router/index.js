@@ -16,7 +16,7 @@ import Magellan from '@/components/core/Magellan'
 import Pagination from '@/components/core/Pagination'
 // import Reveal from '@/components/core/Reveal'
 import Slider from '@/components/core/Slider'
-import ToggleSwitch from '@/components/core/ToggleSwitch'
+// import ToggleSwitch from '@/components/core/ToggleSwitch'
 // import Tabs from '@/components/core/Tabs'
 import Tooltip from '@/components/core/Tooltip'
 
@@ -55,7 +55,6 @@ export default new Router({
     { name: 'pagination', path: '/components/pagination', component: Pagination },
     { name: 'reveal', path: '/components/reveal', component: RevealPage },
     { name: 'slider', path: '/components/slider', component: Slider },
-    { name: 'switch', path: '/components/switch', component: ToggleSwitch },
     { name: 'tabs', path: '/components/tabs', component: TabsPage },
     { name: 'tooltip', path: '/components/tooltip', component: Tooltip },
     { name: 'blog-post-footer', path: '/blog-post-footer', component: BlogPostFooter },
