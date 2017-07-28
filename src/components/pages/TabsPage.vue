@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="row"></div>
+    <div class="row">
       <div class="medium-10 medium-offset-1 columns">
         <div id="debug-panel" class="callout secondary">
           <h2>Settings</h2>
